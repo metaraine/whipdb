@@ -1,26 +1,27 @@
 {
-  "name": "application-name",
+  "name": "whipdb",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
+  "author": "metaraine <raineorshine@gmail.com>",
   "dependencies": {
-    "express": "~4.0.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0",
-    "mongodb": "^1.4.0",
-    "mongoose": "^3.8.8",
-    "async": "^0.7.0"
+    "express": "~4",
+    "static-favicon": "~1",
+    "morgan": "~1",
+    "cookie-parser": "~1",
+    "body-parser": "~1",
+    "debug": "~0.7",
+    "jade": "~1",
+    "mongodb": "^1",
+    "mongoose": "^3",
+    "async": "^0.7"
   },
   "devDependencies": {
-    "coffee-script": "^1.7.1",
-    "gulp-clean": "^0.2.4",
-    "gulp-coffee": "^1.4.2",
-    "gulp": "^3.6.1"
+    "coffee-script": "^1",
+    "gulp-clean": "^0.2",
+    "gulp-coffee": "^1",
+    "gulp": "^3"
   }
 }
