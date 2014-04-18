@@ -47,12 +47,12 @@ em {
 }
 
 .text-extra-muted {
-	color: #ddd;
+	color: #d6d6d6;
 }
-.text-extra-muted::-webkit-input-placeholder { color:    #ddd; }
-.text-extra-muted:-moz-placeholder { color:    #ddd; }
-.text-extra-muted::-moz-placeholder { color:    #ddd; }
-.text-extra-muted:-ms-input-placeholder { color:    #ddd; }
+.text-extra-muted::-webkit-input-placeholder { color:    #d6d6d6; }
+.text-extra-muted:-moz-placeholder { color:    #d6d6d6; }
+.text-extra-muted::-moz-placeholder { color:    #d6d6d6; }
+.text-extra-muted:-ms-input-placeholder { color:    #d6d6d6; }
 
 .link-unstyled:hover {
 	text-decoration: none;

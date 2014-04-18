@@ -2,8 +2,8 @@ extends layout
 
 block content
 
-	mixin key(masked)
-		span.text-extra-muted ?key=
+	mixin key(append)
+		span.text-extra-muted= (append ? '&' : '?') + 'key='
 			span.demo-key 123456789
 
 	section
@@ -29,7 +29,7 @@ block content
 			tr
 				td.header-cell GET
 				td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
-					+key
+					+key(true)
 			tr
 				td.header-cell POST
 				td whipdb.com/<em class='demo-username'>____</em>/users
@@ -37,11 +37,11 @@ block content
 			tr
 				td.header-cell PUT
 				td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
-					+key
+					+key(true)
 			tr
 				td.header-cell DELETE
 				td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
-					+key
+					+key(true)
 
 block scripts
 	script.
