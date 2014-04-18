@@ -4,26 +4,62 @@ body {
   font-weight: 300;
 }
 
-a {
-  color: #00B7FF;
-}
+a { color: mediumseagreen; }
+a:visited { color: seagreen; }
 
 h1 { font-size: 72px; }
 h2 { font-size: 55px; }
 h3 { font-size: 32px; }
 h4 { font-size: 24px; }
 .text-smaller { font-size: 18px; }
+
 section {
 	margin-bottom: 50px;
 }
+
+p { margin: 0 0 20px; }
 
 em {
 	font-style: normal;
 	color: mediumseagreen;
 }
 
+.left { text-align: left; }
+.right { text-align: right; }
+
+.form-control.right {
+	position: relative;
+	right: -0.8em; /* offset right padding inside text box */
+}
+
+.form-control {
+	font-size: 18px;
+	padding: 21.6px 14.4px;
+}
+
+.form-control-md {
+	font-size: 24px;
+}
+
+.input-stealth {
+	border: 0;
+	box-shadow: none;
+}
+
+.text-extra-muted {
+	color: #ddd;
+}
+.text-extra-muted::-webkit-input-placeholder { color:    #ddd; }
+.text-extra-muted:-moz-placeholder { color:    #ddd; }
+.text-extra-muted::-moz-placeholder { color:    #ddd; }
+.text-extra-muted:-ms-input-placeholder { color:    #ddd; }
+
+.link-unstyled:hover {
+	text-decoration: none;
+}
+
 .mega-narrow {
-	width: 600px;
+	max-width: 600px;
 	margin: 0 auto;
 }
 
@@ -34,6 +70,10 @@ em {
 }
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
 	background-color: seagreen;
+}
+.btn-primary.disabled {
+	background-color: #d6d6d6;
+	color: inherit;
 }
 
 .blur {
@@ -46,6 +86,7 @@ em {
 
 .header-cell {
 	text-align: right;
+	vertical-align: top;
 	padding-right: 0.3em;
 	width: 1px;
 }

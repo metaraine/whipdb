@@ -1,35 +1,47 @@
 extends layout
 
 block content
-	.mega-narrow
-		section
-			h1 whip
-				span.text-muted db
-			p Simple Mongo front-end with dev-friendly REST API.
-			form#signup-form.form(method='post' action='/register')
-				.form-group
-					input#username.form-control(name='username' placeholder='Choose a username')
-				.form-group
-					input#password.form-control(type='password' name='password' placeholder='Choose a password')
-				input.btn.btn-primary.btn-lg.btn-block(type='submit' value='Sign Up')
 
-		section
-			table.text-smaller
-				tr
-					td.header-cell GET
-					td whipdb.com/<em class='demo-username'>____</em>/users
-				tr
-					td.header-cell GET
-					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
-				tr
-					td.header-cell POST
-					td whipdb.com/<em class='demo-username'>____</em>/users
-				tr
-					td.header-cell PUT
-					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
-				tr
-					td.header-cell DELETE
-					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+	mixin key(masked)
+		span.text-extra-muted ?key=
+			span.demo-key 123456789
+
+	section
+		h1 
+			a.link-unstyled(href='/') whip
+				span.text-muted db
+
+		p Simple Mongo front-end with dev-friendly REST API.
+
+		form#signup-form.form(method='post' action='/register')
+			.form-group
+				input#username.form-control(name='username' placeholder='Choose a username')
+			.form-group
+				input#password.form-control(type='password' name='password' placeholder='Choose a password')
+			input.btn.btn-primary.btn-lg.btn-block(type='submit' value='Sign Up')
+
+	section
+		table.text-smaller
+			tr
+				td.header-cell GET
+				td whipdb.com/<em class='demo-username'>____</em>/users
+					+key
+			tr
+				td.header-cell GET
+				td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+					+key
+			tr
+				td.header-cell POST
+				td whipdb.com/<em class='demo-username'>____</em>/users
+					+key
+			tr
+				td.header-cell PUT
+				td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+					+key
+			tr
+				td.header-cell DELETE
+				td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+					+key
 
 block scripts
 	script.
@@ -42,8 +54,13 @@ block scripts
 		}
 
 		$('#username').on('input', function() {
+			var username = $(this).val().replace(/\s/g, '');
+			$(this).val(username);
 			var paddedUsername = pad($(this).val(), 4, '_');
 			$('.demo-username').text(paddedUsername);
+			$('.demo-key').each(function() {
+				$(this).text(username ? $(this).text().replace(/./g, '•') : '123456789');
+			});
 		})
 
 		//- $('#signup-form').on('submit', function() {

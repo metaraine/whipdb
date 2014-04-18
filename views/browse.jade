@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+	-var keysToDisplay = { name: 1 }
+
+	section
+		h1
+			a.link-unstyled(href='/dashboard') whip
+				span.text-muted db
+
+	section
+		a.text-smaller(href='/' + user.username + '/dashboard') ←	Dashboard
+		h2= collection
+		table
+			//- thead
+				tr
+				for val,key in docs[0]
+					if key in keysToDisplay
+						th= key
+			tbody
+				for doc in docs
+					tr
+						for val,key in doc
+							if key in keysToDisplay
+								td
+									a(href='/' + user.username + '/browse/' + collection + '/' + doc._id)= val

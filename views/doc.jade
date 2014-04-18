@@ -1,0 +1,69 @@
+extends layout
+
+block content
+
+	-var keysToDisplay = { name: 1 }
+	
+	section
+		h1
+			a.link-unstyled(href='/dashboard') whip
+				span.text-muted db
+
+	section
+		p
+			a(href='/' + user.username + '/browse/' + collection) ←	#{collection}
+		form.form-horizontal
+			-console.log('doc',doc)
+			for val,key in doc
+				if key in keysToDisplay
+					.form-group
+						.col-sm-3
+							input.form-control.form-control-md.input-stealth.right(name=key value=key)
+						.col-sm-9
+							input.form-control.input-stealth(name=key value=val)
+			.form-group
+				.col-sm-3
+					input.text-extra-muted.form-control.form-control-md.input-stealth.right(name=key placeholder='new field')
+				.col-sm-9
+					input.text-extra-muted.form-control.input-stealth(name=key placeholder='new value')
+
+			.form-group
+				.col-sm-offset-2.col-sm-10
+					//- input#restore.disabled.btn.btn-primary(type='submit' value='Restore')
+					p
+						em#status
+
+block scripts
+	script.
+
+		var doc = JSON.parse('!{JSON.stringify(doc)}');
+
+		var save = function() {
+			// do ajax
+			$('#restore').removeClass('disabled');
+			$('#status')
+				.stop(true)
+				.fadeIn()
+				.text('✓ Saved')
+				.delay(3000)
+				.fadeOut(1000);
+		};
+
+		$('#status').hide();
+		$('input').on('input', function() {
+			save();
+		});
+
+		$('#restore').on('click', function() {
+			for(key in doc) {
+				$('input[name="' + key + '"]').val(doc[key]);
+			}
+			save();
+			$('#restore').addClass('disabled');
+
+			return false;
+		});
+
+		$('#add').on('click', function() {
+			return false;
+		});
