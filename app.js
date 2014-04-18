@@ -16,7 +16,7 @@ var express =          require('express'),
 
 var app = express();
 
-var dbConnectionString = 'mongodb://127.0.0.1:27017/whip';
+var dbConnectionString = global.process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/whip';
 mongoose.connect(dbConnectionString);
 
 // view engine setup
