@@ -1,0 +1,52 @@
+body {
+  padding: 50px;
+  font: 24px Lato, Helvetica, 'Segoe UI', Arial, sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 { font-size: 72px; }
+h2 { font-size: 55px; }
+h3 { font-size: 32px; }
+h4 { font-size: 24px; }
+.text-smaller { font-size: 18px; }
+section {
+	margin-bottom: 50px;
+}
+
+em {
+	font-style: normal;
+	color: mediumseagreen;
+}
+
+.mega-narrow {
+	width: 600px;
+	margin: 0 auto;
+}
+
+/* BOOTSTAP OVERRIDES */
+.btn-primary {
+	background-color: mediumseagreen;
+	border: none;
+}
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+	background-color: seagreen;
+}
+
+.blur {
+	-webkit-filter: blur(20px);
+	-moz-filter: blur(15px);
+	-o-filter: blur(15px);
+	-ms-filter: blur(15px);
+	filter: blur(15px);
+}
+
+.header-cell {
+	text-align: right;
+	padding-right: 0.3em;
+	width: 1px;
+}
+

@@ -1,0 +1,54 @@
+extends layout
+
+block content
+	.mega-narrow
+		section
+			h1 whip
+				span.text-muted db
+			p Simple Mongo front-end with dev-friendly REST API.
+			form#signup-form.form(method='post' action='/register')
+				.form-group
+					input#username.form-control(name='username' placeholder='Choose a username')
+				.form-group
+					input#password.form-control(type='password' name='password' placeholder='Choose a password')
+				input.btn.btn-primary.btn-lg.btn-block(type='submit' value='Sign Up')
+
+		section
+			table.text-smaller
+				tr
+					td.header-cell GET
+					td whipdb.com/<em class='demo-username'>____</em>/users
+				tr
+					td.header-cell GET
+					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+				tr
+					td.header-cell POST
+					td whipdb.com/<em class='demo-username'>____</em>/users
+				tr
+					td.header-cell PUT
+					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+				tr
+					td.header-cell DELETE
+					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+
+block scripts
+	script.
+
+		var pad = function(str, n, padChar) {
+			for(var i=0; i<n - str.length; i++) {
+				str += padChar;
+			}
+			return str;
+		}
+
+		$('#username').on('input', function() {
+			var paddedUsername = pad($(this).val(), 4, '_');
+			$('.demo-username').text(paddedUsername);
+		})
+
+		//- $('#signup-form').on('submit', function() {
+
+
+
+		//- 	return false;
+		//- })

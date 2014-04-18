@@ -1,0 +1,39 @@
+extends layout
+
+block content
+	.mega-narrow
+		section
+			h1 whip
+				span.text-muted db
+			p Simple Mongo front-end with dev-friendly REST API.
+
+		section
+			ul.list-unstyled.text-smaller
+				for collection in collections
+					li: a(href='/' + user.username + '/collections/' + collection.name) collection.name (#{collection.count})
+
+		//- section
+			form#signup-form.form(method='post' action='/register')
+				.form-group
+					input#username.form-control(name='username' placeholder='Choose a username')
+				.form-group
+					input#password.form-control(type='password' name='password' placeholder='Choose a password')
+				input.btn.btn-primary.btn-lg.btn-block(type='submit' value='Sign Up')
+
+		//- section
+			table.text-smaller
+				tr
+					td.header-cell GET
+					td whipdb.com/<em class='demo-username'>____</em>/users
+				tr
+					td.header-cell GET
+					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+				tr
+					td.header-cell POST
+					td whipdb.com/<em class='demo-username'>____</em>/users
+				tr
+					td.header-cell PUT
+					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
+				tr
+					td.header-cell DELETE
+					td whipdb.com/<em class='demo-username'>____</em>/users?name=Bob
